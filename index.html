@@ -79,50 +79,40 @@
         <p class="instructions-text">TAP YOUR LUCKY BOX!</p>
     </section>
 
-    <!-- Premium Triggers Section -->
+    <!-- Premium Triggers Section - Compact -->
     <section class="triggers-section">
         <div class="triggers-container">
-            <!-- Countdown Timer -->
-            <div class="trigger-card timer-card">
-                <svg class="trigger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="13" r="9" stroke="currentColor" stroke-width="2"/>
-                    <path d="M12 8v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M9 2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-                <div class="trigger-content">
-                    <p class="trigger-label">OFFER ENDS IN</p>
-                    <div class="countdown-timer" id="countdownTimer">
-                        <div class="time-unit">
-                            <span class="time-value" id="hours">00</span>
-                            <span class="time-label">Hours</span>
+            <div class="trigger-card-compact">
+                <!-- Timer Left Side -->
+                <div class="trigger-half timer-half">
+                    <p class="trigger-label-compact">ENDS IN</p>
+                    <div class="countdown-timer-compact" id="countdownTimer">
+                        <div class="time-unit-compact">
+                            <span class="time-value-compact" id="hours">00</span>
+                            <span class="time-label-compact">H</span>
                         </div>
-                        <span class="time-separator">:</span>
-                        <div class="time-unit">
-                            <span class="time-value" id="minutes">00</span>
-                            <span class="time-label">Mins</span>
+                        <span class="time-separator-compact">:</span>
+                        <div class="time-unit-compact">
+                            <span class="time-value-compact" id="minutes">00</span>
+                            <span class="time-label-compact">M</span>
                         </div>
-                        <span class="time-separator">:</span>
-                        <div class="time-unit">
-                            <span class="time-value" id="seconds">00</span>
-                            <span class="time-label">Secs</span>
+                        <span class="time-separator-compact">:</span>
+                        <div class="time-unit-compact">
+                            <span class="time-value-compact" id="seconds">00</span>
+                            <span class="time-label-compact">S</span>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Winners Counter -->
-            <div class="trigger-card winners-card">
-                <svg class="trigger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-                <div class="trigger-content">
-                    <p class="trigger-label">PEOPLE ALREADY WON</p>
-                    <div class="winners-count">
-                        <span class="winners-number" id="winnersCount">2,847</span>
-                        <span class="winners-pulse"></span>
+                <!-- Divider -->
+                <div class="trigger-divider"></div>
+
+                <!-- Winners Right Side -->
+                <div class="trigger-half winners-half">
+                    <p class="trigger-label-compact">WON</p>
+                    <div class="winners-count-compact">
+                        <span class="winners-number-compact" id="winnersCount">2,847</span>
+                        <span class="winners-pulse-compact"></span>
                     </div>
                 </div>
             </div>

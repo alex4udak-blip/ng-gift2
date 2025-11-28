@@ -147,7 +147,7 @@ header, section, footer {
    ═══════════════════════════════════════════════════════════════════════ */
 
 .hero {
-    padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-xs);
+    padding: 0.5rem var(--spacing-sm) 0.25rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -242,8 +242,8 @@ header, section, footer {
 }
 
 .hero-illustration {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     margin: 0 auto 0.25rem;
     animation: float 3s ease-in-out infinite;
     position: relative;
@@ -271,20 +271,20 @@ header, section, footer {
 }
 
 .hero-title {
-    font-size: clamp(1rem, 4vw, 2.25rem);
+    font-size: clamp(0.875rem, 3.5vw, 2.25rem);
     font-weight: 700;
     letter-spacing: 0.05em;
     color: var(--text-dark);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
     text-transform: uppercase;
 }
 
 .prize-amount {
-    font-size: clamp(2rem, 10vw, 5rem);
+    font-size: clamp(1.75rem, 9vw, 5rem);
     font-weight: 900;
     color: var(--mtn-yellow);
     text-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
     line-height: 1.1;
     letter-spacing: -0.02em;
     animation: pulse-subtle 2s ease-in-out infinite;
@@ -300,12 +300,12 @@ header, section, footer {
 }
 
 .hero-subtitle {
-    font-size: clamp(0.7rem, 2.5vw, 1.125rem);
+    font-size: clamp(0.625rem, 2.2vw, 1.125rem);
     font-weight: 600;
     color: var(--text-medium);
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -313,12 +313,12 @@ header, section, footer {
    ═══════════════════════════════════════════════════════════════════════ */
 
 .instructions {
-    padding: 0 var(--spacing-sm) var(--spacing-xs);
+    padding: 0 var(--spacing-sm) 0.35rem;
     text-align: center;
 }
 
 .instructions-text {
-    font-size: clamp(0.8rem, 3.5vw, 1.25rem);
+    font-size: clamp(0.75rem, 3.2vw, 1.25rem);
     font-weight: 600;
     color: var(--text-dark);
     letter-spacing: 0.05em;
@@ -335,104 +335,94 @@ header, section, footer {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
-   PREMIUM TRIGGERS SECTION - COUNTDOWN TIMER & WINNERS COUNTER
+   PREMIUM TRIGGERS SECTION - COMPACT MOBILE FIRST
    ═══════════════════════════════════════════════════════════════════════ */
 
 .triggers-section {
-    padding: var(--spacing-md) var(--spacing-sm);
-    background: linear-gradient(180deg, rgba(255, 252, 240, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+    padding: 0.5rem var(--spacing-sm) 0.5rem;
 }
 
 .triggers-container {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
 }
 
-.trigger-card {
+/* Compact Single Card with Two Halves */
+.trigger-card-compact {
     background: var(--mtn-white);
-    border-radius: 20px;
-    padding: var(--spacing-md);
+    border-radius: 14px;
+    padding: 0.625rem 0.75rem;
     box-shadow:
-        0 4px 20px rgba(255, 204, 0, 0.15),
-        0 2px 8px rgba(0, 0, 0, 0.08);
+        0 3px 12px rgba(255, 204, 0, 0.15),
+        0 1px 4px rgba(0, 0, 0, 0.08);
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
+    justify-content: space-between;
+    gap: 0.75rem;
     position: relative;
     overflow: hidden;
-    border: 2px solid rgba(255, 204, 0, 0.2);
-    transition: all var(--transition-medium);
+    border: 1.5px solid rgba(255, 204, 0, 0.2);
 }
 
-.trigger-card::before {
+.trigger-card-compact::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
+    height: 2px;
     background: linear-gradient(90deg, #FFCC00 0%, #FFA500 100%);
     opacity: 0.8;
 }
 
-.trigger-card:hover {
-    transform: translateY(-2px);
-    box-shadow:
-        0 6px 28px rgba(255, 204, 0, 0.25),
-        0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-.trigger-icon {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    color: var(--mtn-yellow);
-    background: linear-gradient(135deg, #FFF9E6 0%, #FFEECC 100%);
-    border-radius: 12px;
-    padding: 10px;
-    filter: drop-shadow(0 2px 6px rgba(255, 204, 0, 0.25));
-}
-
-.trigger-content {
+/* Each Half */
+.trigger-half {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 0.25rem;
 }
 
-.trigger-label {
-    font-size: 0.6875rem;
+/* Divider Between */
+.trigger-divider {
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 204, 0, 0.3) 50%, transparent 100%);
+}
+
+/* Labels */
+.trigger-label-compact {
+    font-size: 0.5rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-medium);
     margin: 0;
+    opacity: 0.8;
 }
 
-/* Countdown Timer */
-.countdown-timer {
+/* Countdown Timer Compact */
+.countdown-timer-compact {
     display: flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.2rem;
 }
 
-.time-unit {
+.time-unit-compact {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.125rem;
+    gap: 0.05rem;
 }
 
-.time-value {
-    font-size: 1.75rem;
+.time-value-compact {
+    font-size: 1.125rem;
     font-weight: 900;
     color: var(--mtn-yellow);
     line-height: 1;
-    text-shadow: 0 2px 8px rgba(255, 204, 0, 0.3);
-    min-width: 44px;
+    text-shadow: 0 1px 4px rgba(255, 204, 0, 0.3);
+    min-width: 24px;
     text-align: center;
     animation: tick-pulse 1s ease-in-out infinite;
 }
@@ -446,19 +436,20 @@ header, section, footer {
     }
 }
 
-.time-label {
-    font-size: 0.5625rem;
+.time-label-compact {
+    font-size: 0.4375rem;
     font-weight: 600;
     color: var(--text-light);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
 }
 
-.time-separator {
-    font-size: 1.5rem;
+.time-separator-compact {
+    font-size: 1rem;
     font-weight: 900;
     color: var(--mtn-yellow);
     opacity: 0.6;
+    padding: 0 0.05rem;
     animation: separator-blink 2s ease-in-out infinite;
 }
 
@@ -471,21 +462,21 @@ header, section, footer {
     }
 }
 
-/* Winners Counter */
-.winners-count {
-    position: relative;
-    display: inline-flex;
+/* Winners Counter Compact */
+.winners-count-compact {
+    display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
+    gap: 0.35rem;
 }
 
-.winners-number {
-    font-size: 2rem;
+.winners-number-compact {
+    font-size: 1.25rem;
     font-weight: 900;
     color: var(--success-green);
     line-height: 1;
-    text-shadow: 0 2px 8px rgba(0, 200, 83, 0.3);
+    text-shadow: 0 1px 4px rgba(0, 200, 83, 0.3);
     animation: count-pulse 2s ease-in-out infinite;
+    transition: all 0.15s ease;
 }
 
 @keyframes count-pulse {
@@ -497,16 +488,16 @@ header, section, footer {
     }
 }
 
-.winners-pulse {
-    width: 12px;
-    height: 12px;
+.winners-pulse-compact {
+    width: 8px;
+    height: 8px;
     background: var(--success-green);
     border-radius: 50%;
     position: relative;
     animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.winners-pulse::before {
+.winners-pulse-compact::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -536,7 +527,7 @@ header, section, footer {
    ═══════════════════════════════════════════════════════════════════════ */
 
 .boxes-section {
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: 0.35rem var(--spacing-sm) 0.75rem;
 }
 
 .boxes-container {
@@ -567,10 +558,10 @@ header, section, footer {
 }
 
 .box-icon-wrapper {
-    width: 85px;
-    height: 85px;
+    width: 75px;
+    height: 75px;
     background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-    border-radius: 18px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -660,14 +651,14 @@ header, section, footer {
 }
 
 .box-icon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     color: var(--mtn-white);
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .box-label {
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     color: var(--text-medium);
     letter-spacing: 0.1em;
