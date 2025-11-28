@@ -22,6 +22,79 @@ function updateLinks() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
+// COUNTDOWN TIMER - ТАЙМЕР ОБРАТНОГО ОТСЧЕТА
+// ═══════════════════════════════════════════════════════════════════════
+
+function initCountdownTimer() {
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    if (!hoursEl || !minutesEl || !secondsEl) return;
+
+    // Устанавливаем время окончания (3 часа от текущего момента)
+    const endTime = new Date().getTime() + (3 * 60 * 60 * 1000);
+
+    function updateTimer() {
+        const now = new Date().getTime();
+        const timeLeft = endTime - now;
+
+        if (timeLeft <= 0) {
+            hoursEl.textContent = '00';
+            minutesEl.textContent = '00';
+            secondsEl.textContent = '00';
+            return;
+        }
+
+        const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minutesEl.textContent = String(minutes).padStart(2, '0');
+        secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+
+    // Обновляем таймер каждую секунду
+    updateTimer();
+    setInterval(updateTimer, 1000);
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// WINNERS COUNTER - СЧЕТЧИК ВЫИГРАВШИХ С АНИМАЦИЕЙ
+// ═══════════════════════════════════════════════════════════════════════
+
+function initWinnersCounter() {
+    const winnersEl = document.getElementById('winnersCount');
+    if (!winnersEl) return;
+
+    // Начальное число выигравших
+    let currentCount = 2847;
+
+    // Анимация обновления счетчика каждые 8-15 секунд
+    function incrementCounter() {
+        const increment = Math.floor(Math.random() * 3) + 1; // +1 to +3
+        currentCount += increment;
+
+        // Анимация изменения числа
+        winnersEl.style.transform = 'scale(1.15)';
+        winnersEl.style.color = '#00C853';
+
+        setTimeout(() => {
+            winnersEl.textContent = currentCount.toLocaleString('en-US');
+            winnersEl.style.transform = 'scale(1)';
+        }, 150);
+
+        // Следующее обновление через случайное время (8-15 сек)
+        const nextUpdate = Math.random() * 7000 + 8000;
+        setTimeout(incrementCounter, nextUpdate);
+    }
+
+    // Запускаем через 5 секунд после загрузки
+    setTimeout(incrementCounter, 5000);
+}
+
+// ═══════════════════════════════════════════════════════════════════════
 // ИНТЕРАКТИВНОСТЬ СТРАНИЦЫ - КОРОБКИ, МОДАЛЬНОЕ ОКНО, КОНФЕТТИ
 // ═══════════════════════════════════════════════════════════════════════
 
@@ -40,6 +113,12 @@ function updateLinks() {
     function init() {
         // Обновляем ссылки при загрузке
         updateLinks();
+
+        // Инициализируем таймер обратного отсчета
+        initCountdownTimer();
+
+        // Инициализируем счетчик выигравших
+        initWinnersCounter();
 
         // Обработчики кликов по коробкам
         boxes.forEach((box, index) => {
