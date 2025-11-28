@@ -76,8 +76,8 @@ function initWinnersCounter() {
         const increment = Math.floor(Math.random() * 3) + 1; // +1 to +3
         currentCount += increment;
 
-        // Анимация изменения числа
-        winnersEl.style.transform = 'scale(1.15)';
+        // Анимация изменения числа (меньший scale для компактной версии)
+        winnersEl.style.transform = 'scale(1.1)';
         winnersEl.style.color = '#00C853';
 
         setTimeout(() => {
