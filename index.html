@@ -42,6 +42,15 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <!-- Animated Background Circles -->
+        <div class="hero-circles">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+            <div class="circle circle-4"></div>
+            <div class="circle circle-5"></div>
+        </div>
+
         <div class="hero-container">
             <div class="hero-illustration">
                 <img src="images/hero.webp" alt="MTN Lucky Draw" class="hero-image">
@@ -68,6 +77,56 @@
     <!-- Instructions -->
     <section class="instructions">
         <p class="instructions-text">TAP YOUR LUCKY BOX!</p>
+    </section>
+
+    <!-- Premium Triggers Section -->
+    <section class="triggers-section">
+        <div class="triggers-container">
+            <!-- Countdown Timer -->
+            <div class="trigger-card timer-card">
+                <svg class="trigger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="13" r="9" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 8v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M9 2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div class="trigger-content">
+                    <p class="trigger-label">OFFER ENDS IN</p>
+                    <div class="countdown-timer" id="countdownTimer">
+                        <div class="time-unit">
+                            <span class="time-value" id="hours">00</span>
+                            <span class="time-label">Hours</span>
+                        </div>
+                        <span class="time-separator">:</span>
+                        <div class="time-unit">
+                            <span class="time-value" id="minutes">00</span>
+                            <span class="time-label">Mins</span>
+                        </div>
+                        <span class="time-separator">:</span>
+                        <div class="time-unit">
+                            <span class="time-value" id="seconds">00</span>
+                            <span class="time-label">Secs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Winners Counter -->
+            <div class="trigger-card winners-card">
+                <svg class="trigger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div class="trigger-content">
+                    <p class="trigger-label">PEOPLE ALREADY WON</p>
+                    <div class="winners-count">
+                        <span class="winners-number" id="winnersCount">2,847</span>
+                        <span class="winners-pulse"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Gift Boxes Section -->

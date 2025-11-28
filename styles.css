@@ -150,6 +150,88 @@ header, section, footer {
     padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-xs);
     text-align: center;
     position: relative;
+    overflow: hidden;
+}
+
+/* Animated Background Circles */
+.hero-circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 204, 0, 0.15) 0%, rgba(255, 204, 0, 0.05) 50%, transparent 100%);
+    opacity: 0.6;
+}
+
+.circle-1 {
+    width: 120px;
+    height: 120px;
+    top: 10%;
+    left: 5%;
+    animation: float-circle 20s ease-in-out infinite;
+}
+
+.circle-2 {
+    width: 80px;
+    height: 80px;
+    top: 60%;
+    right: 10%;
+    animation: float-circle 15s ease-in-out infinite reverse;
+}
+
+.circle-3 {
+    width: 150px;
+    height: 150px;
+    bottom: 20%;
+    left: 50%;
+    animation: float-circle 25s ease-in-out infinite;
+    animation-delay: -5s;
+}
+
+.circle-4 {
+    width: 60px;
+    height: 60px;
+    top: 30%;
+    right: 20%;
+    animation: float-circle 18s ease-in-out infinite;
+    animation-delay: -8s;
+}
+
+.circle-5 {
+    width: 100px;
+    height: 100px;
+    bottom: 10%;
+    left: 15%;
+    animation: float-circle 22s ease-in-out infinite reverse;
+    animation-delay: -12s;
+}
+
+@keyframes float-circle {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translate(30px, -40px) scale(1.1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-20px, -60px) scale(0.9);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translate(40px, -30px) scale(1.05);
+        opacity: 0.7;
+    }
 }
 
 .hero-container {
@@ -253,6 +335,203 @@ header, section, footer {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
+   PREMIUM TRIGGERS SECTION - COUNTDOWN TIMER & WINNERS COUNTER
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.triggers-section {
+    padding: var(--spacing-md) var(--spacing-sm);
+    background: linear-gradient(180deg, rgba(255, 252, 240, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.triggers-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.trigger-card {
+    background: var(--mtn-white);
+    border-radius: 20px;
+    padding: var(--spacing-md);
+    box-shadow:
+        0 4px 20px rgba(255, 204, 0, 0.15),
+        0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 204, 0, 0.2);
+    transition: all var(--transition-medium);
+}
+
+.trigger-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FFCC00 0%, #FFA500 100%);
+    opacity: 0.8;
+}
+
+.trigger-card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 6px 28px rgba(255, 204, 0, 0.25),
+        0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.trigger-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    color: var(--mtn-yellow);
+    background: linear-gradient(135deg, #FFF9E6 0%, #FFEECC 100%);
+    border-radius: 12px;
+    padding: 10px;
+    filter: drop-shadow(0 2px 6px rgba(255, 204, 0, 0.25));
+}
+
+.trigger-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.trigger-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-medium);
+    margin: 0;
+}
+
+/* Countdown Timer */
+.countdown-timer {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.125rem;
+}
+
+.time-value {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--mtn-yellow);
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(255, 204, 0, 0.3);
+    min-width: 44px;
+    text-align: center;
+    animation: tick-pulse 1s ease-in-out infinite;
+}
+
+@keyframes tick-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.time-label {
+    font-size: 0.5625rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.time-separator {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--mtn-yellow);
+    opacity: 0.6;
+    animation: separator-blink 2s ease-in-out infinite;
+}
+
+@keyframes separator-blink {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.2;
+    }
+}
+
+/* Winners Counter */
+.winners-count {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.winners-number {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--success-green);
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 200, 83, 0.3);
+    animation: count-pulse 2s ease-in-out infinite;
+}
+
+@keyframes count-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+.winners-pulse {
+    width: 12px;
+    height: 12px;
+    background: var(--success-green);
+    border-radius: 50%;
+    position: relative;
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.winners-pulse::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: var(--success-green);
+    border-radius: 50%;
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    opacity: 0.6;
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
    BOXES SECTION
    ═══════════════════════════════════════════════════════════════════════ */
 
@@ -299,7 +578,7 @@ header, section, footer {
     transition: all var(--transition-medium);
     position: relative;
     overflow: hidden;
-    animation: pulse-box 2s ease-in-out infinite;
+    animation: pulse-box-enhanced 2.5s ease-in-out infinite, bounce-box 3s ease-in-out infinite;
 }
 
 .box-icon-wrapper::before {
@@ -313,9 +592,71 @@ header, section, footer {
     pointer-events: none;
 }
 
+/* Glow effect */
+.box-icon-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
+    animation: rotate-glow 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotate-glow {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 0.6;
+    }
+}
+
 .box-item:hover .box-icon-wrapper {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-colored);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow:
+        0 8px 32px rgba(255, 204, 0, 0.5),
+        0 0 20px rgba(255, 215, 0, 0.6),
+        0 0 40px rgba(255, 215, 0, 0.3);
+}
+
+/* Enhanced pulse animation for boxes */
+@keyframes pulse-box-enhanced {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow:
+            0 4px 16px rgba(0, 0, 0, 0.12),
+            0 0 0 0 rgba(255, 215, 0, 0);
+    }
+    50% {
+        transform: scale(1.06);
+        box-shadow:
+            0 6px 24px rgba(255, 204, 0, 0.4),
+            0 0 0 8px rgba(255, 215, 0, 0.2);
+    }
+}
+
+/* Bounce animation */
+@keyframes bounce-box {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-5px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-3px);
+    }
 }
 
 .box-icon {
@@ -556,16 +897,6 @@ header, section, footer {
     }
 }
 
-@keyframes pulse-box {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: var(--shadow-medium);
-    }
-    50% {
-        transform: scale(1.08);
-        box-shadow: var(--shadow-colored);
-    }
-}
 
 .cta-button::before {
     content: '';
